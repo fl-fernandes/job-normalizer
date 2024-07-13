@@ -1,0 +1,54 @@
+openapi: 3.0.0
+
+info:
+  title: Job Normalizer API
+  description: API to normalize strings into a predefined subset of job names.
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:8080/job-normalizer/v1
+    description: Localhost server
+
+paths:
+  /normalize:
+    post:
+      summary: Return the job name normalization for a given string.
+      description: | 
+        There are only two job normalization supported: `Software engineer` and `Accountant`.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobNormalizationRequest'
+      responses:
+        200:
+          description: Returns the normalized job name.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobNormalizationResult'
+        500:
+          description: Internal Server Error
+
+components:
+  schemas:
+    JobNormalizationRequest:
+      type: object
+      properties:
+        jobName:
+          type: string
+          example: java engineer
+      required:
+        - jobName
+    JobNormalizationResult:
+      type: object
+      properties:
+        normalizedJobName:
+          type: string
+          enum:
+            - Software engineer
+            - Accountant
+          example: Software engineer
+      required:
+        - normalizedJobName
