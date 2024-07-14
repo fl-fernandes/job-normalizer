@@ -10,7 +10,9 @@ import com.normalizer.job_normalizer.utils.NormalizerUtil;
 public class DefaultNormalizationService implements NormalizationService {
   private static List<String> SUPPORTED_NORMALIZED_JOB_NAMES = List.of(
     "Software engineer",
-    "Accountant"
+    "Accountant",
+    "Architect",
+    "Quantity surveyor"
   );
   
   public String normalize(final String jobName) {
