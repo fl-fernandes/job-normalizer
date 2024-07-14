@@ -1,3 +1,6 @@
 package com.normalizer.job_normalizer.models;
 
-public record JobNormalizationResponse(String normalizedJobName) {}
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public record JobNormalizationResponse(
+    @JsonProperty("normalizedJobName") String normalizedJobName) {}
