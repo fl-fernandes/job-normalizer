@@ -27,7 +27,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/JobNormalizationResult'
+                $ref: '#/components/schemas/JobNormalizationResponse'
         500:
           description: Internal Server Error
 
@@ -41,7 +41,7 @@ components:
           example: java engineer
       required:
         - jobName
-    JobNormalizationResult:
+    JobNormalizationResponse:
       type: object
       properties:
         normalizedJobName:
@@ -49,6 +49,8 @@ components:
           enum:
             - Software engineer
             - Accountant
+            - Architect
+            - Quantity surveyor
           example: Software engineer
       required:
         - normalizedJobName
