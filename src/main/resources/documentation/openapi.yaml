@@ -14,7 +14,8 @@ paths:
     post:
       summary: Return the job name normalization for a given string.
       description: | 
-        There are only two job normalization supported: `Software engineer` and `Accountant`.
+        There are only four job normalization supported: 
+        `Software engineer`, `Accountant`, `Architect`, and `Quantity surveyor`.
       requestBody:
         required: true
         content:
